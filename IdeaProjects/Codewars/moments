@@ -1,0 +1,32 @@
+---------------------------------------------------------------------------------------------------------------------
+Убрать из массива чисел определённые числа:
+
+public static int[] arrayDiff(int[] a, int[] b) {
+        List<Integer> listA = Arrays.stream(a).boxed().collect(Collectors.toList());
+        List<Integer> listB = Arrays.stream(b).boxed().collect(Collectors.toList());
+        listA.removeAll(listB);
+        return listA.stream().mapToInt(e -> e).toArray();
+    }
+
+---------------------------------------------------------------------------------------------------------------------
+Проверить является ли число простым:
+
+public static boolean isPrime(int n){
+        int factors = 0;
+        for(int i = 1; i <= n; i++){
+            if(n % i == 0) // ensure that you mod n not i
+                factors++;
+        }
+        // if factors count is equals to 2 then it is prime number else it's not prime number
+        if(factors == 2)
+            return true;
+        else
+            return false;
+    }
+
+---------------------------------------------------------------------------------------------------------------------
+Заменить определенный символ в строке, убрать первый или последний элемент в строке:
+
+Integer.toString(num).replaceAll("([13579])","-$1-").replaceAll("--","-").replaceAll("^-","").replaceAll("-$","");
+
+---------------------------------------------------------------------------------------------------------------------
